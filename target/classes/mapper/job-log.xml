@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.letsun.prc.mapper.JobLogMapper">
+	
+	<select id="getJobLog" resultType="JobLog">
+		select jl.* from sys_job_log jl where jl.job_code = #{code} order by id desc limit 30
+	</select>
+	
+</mapper>

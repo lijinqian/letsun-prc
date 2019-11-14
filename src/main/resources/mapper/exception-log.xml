@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.letsun.prc.mapper.ExceptionLogMapper">
+
+	<select id="getExceptionLog" resultType="ExceptionLog" parameterType="ExceptionLog">
+		select el.* from sys_exception_log el
+		<where>
+			<if test="markCode != null and markCode.length() > 0">
+				and el.mark_code = #{markCode}
+			</if>
+		</where>
+		order by el.id desc
+		limit 50
+	</select>
+</mapper>
